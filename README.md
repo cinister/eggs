@@ -36,7 +36,8 @@ If you are submitting PR's try and keep names and titles the same.
 * [Forge](/minecraft_java/forge/)  
 * [Feed The Beast](/minecraft_java/ftb/)  
 * [Spigot](/minecraft_java/spigot/)
-* [PaperSpigot (Legacy)](/minecraft_java/spigot/paper-legacy)
+* [Paper] (/minecraft_java/spigot/paper)
+* [Paper (Legacy)](/minecraft_java/spigot/paper-legacy)
 * [Technic](/minecraft_java/technic/)  
 
 [Minecraft Bedrock](/minecraft_bedrock/)  

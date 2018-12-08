@@ -3,9 +3,9 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2018-10-31T14:43:53-04:00",
-    "name": "Paper Spigot",
-    "author": "hostmaster@waterfallgaming.net",
+    "exported_at": "2018-12-08T16:46:53-05:00",
+    "name": "Paper (Legacy)",
+    "author": "arraying1337@gmail.com",
     "description": "High performance Spigot fork that aims to fix gameplay and mechanics inconsistencies.",
     "image": "quay.io\/pterodactyl\/core:java-glibc",
     "startup": "java -Xms128M -Xmx{{SERVER_MEMORY}}M -jar {{SERVER_JARFILE}}",
@@ -17,8 +17,8 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash\r\n# Paper Spigot Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\napk update\r\napk add curl\r\n\r\ncd \/mnt\/server\r\n\r\nif [ -z \"${DL_VERSION}\" ] || [ \"${DL_VERSION}\" == \"latest\" ]; then\r\n    DL_VERSION=\"lastSuccessfulBuild\"\r\nfi\r\n\r\ncurl -o ${SERVER_JARFILE} https:\/\/papermc.io\/ci\/job\/Paper-1.13\/${DL_VERSION}\/artifact\/paperclip.jar",
-            "container": "alpine:3.8",
+            "script": "#!\/bin\/ash\r\n# Paper Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\napk update\r\napk add curl\r\n\r\ncd \/mnt\/server\r\n\r\nif [ -z \"${DL_VERSION}\" ] || [ \"${DL_VERSION}\" == \"latest\" ]; then\r\n    DL_VERSION=\"lastSuccessfulBuild\"\r\nfi\r\n\r\nif [ \"${DL_VERSION}\" == \"443\" ]; then\r\n    DL_NAME=\"Paperclip\"\r\nelse\r\n    DL_NAME=\"paperclip\"\r\nfi\r\n\r\ncurl -o ${SERVER_JARFILE} https:\/\/papermc.io\/ci\/job\/Paper\/${DL_VERSION}\/artifact\/${DL_NAME}.jar",
+            "container": "alpine:3.4",
             "entrypoint": "ash"
         }
     },
@@ -33,8 +33,8 @@
             "rules": "required|regex:\/^([\\w\\d._-]+)(\\.jar)$\/"
         },
         {
-            "name": "PaperSpigot Version",
-            "description": "The version of PaperSpigot to download, Use \"latest\" for latest.",
+            "name": "Paper Version",
+            "description": "The version of Paper to download, Use \"latest\" for latest.",
             "env_variable": "DL_VERSION",
             "default_value": "latest",
             "user_viewable": 1,
